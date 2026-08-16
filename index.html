@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Shape of a Spike</title>
+  <meta name="description" content="A scroll-driven look at glucose variability, food pairing, and building a nutrition plan from bloodwork and body scans." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>The Shape of a Spike</h1>
+    <p class="subtitle">A1c tells you the average. The curve tells you the story — and the curve is what you can actually change.</p>
+    <div class="scroll-cue">scroll ↓</div>
+  </section>
+
+  <!-- SECTION 1: intro text -->
+  <section class="reveal">
+    <div class="section-inner">
+      <h2>Part One — One number isn't the whole picture</h2>
+      <p>
+        A standard panel gives you a handful of static numbers: A1c, fasting
+        glucose, fasting insulin, maybe a HOMA-IR score if your labs
+        (Function, in my case) calculate it. Those numbers matter — but
+        they're snapshots. A1c is a 3-month <em>average</em>; it can look
+        fine even if you're spiking to 180 mg/dL every afternoon and crashing
+        an hour later.
+      </p>
+      <p>
+        What the average hides is <strong>variability</strong> — the shape
+        of the curve after a meal. Two people can share an identical A1c and
+        have completely different glucose stories.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: the chart -->
+  <section class="reveal">
+    <div class="section-inner">
+      <h2>Part Two — Same carbs, three different curves</h2>
+      <p>
+        Here's the qualitative shape of a post-meal glucose response for the
+        same portion of refined carbohydrate, eaten three different ways.
+        <strong>Illustrative curves</strong>, not measured data — swap in
+        your own CGM readings if you wear one.
+      </p>
+      <div class="chart-wrap">
+        <svg id="chart" viewBox="0 0 800 420" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <p class="caption">
+        Pairing carbs with protein, fat, or fiber slows gastric emptying and
+        blunts the peak. A short walk afterward helps muscle pull glucose
+        out of the bloodstream faster, via GLUT4 uptake, independent of
+        insulin.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: interactive stat -->
+  <section class="reveal">
+    <div class="section-inner">
+      <h2>Part Three — Not all carbs spike equally</h2>
+      <p>
+        Glycemic load estimates how much a typical portion of a food raises
+        blood glucose. Hover or tap a bar. Then toggle the strategy below to
+        see the rough effect of pairing each food with protein, fat, or fiber
+        instead of eating it alone.
+      </p>
+      <button id="pair-toggle" class="toggle-btn" type="button">
+        Show: eaten alone → click to pair with protein/fiber
+      </button>
+      <div id="bars" class="bars"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: closer -->
+  <section class="reveal">
+    <div class="section-inner">
+      <h2>Part Four — Turning labs into a plan</h2>
+      <p>
+        A real plan stacks three layers: <strong>bloodwork</strong> (A1c,
+        fasting insulin, HOMA-IR, triglyceride/HDL ratio from a panel like
+        Function's), <strong>body composition</strong> (visceral fat and
+        lean mass from a DEXA or MRI scan), and <strong>day-to-day
+        tracking</strong> (supplement and symptom logs, a CGM if you use
+        one — SuppCo territory). None of the three alone tells you enough.
+      </p>
+      <p>
+        The chart above is the mechanism worth remembering: it's not "avoid
+        carbs," it's "control the shape of the curve" — pairing, order of
+        eating, and post-meal movement all bend it without cutting anything
+        out.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built with plain HTML/CSS/JS · deployed on Vercel</p>
+    <p class="disclaimer">
+      Reference ranges and curves are illustrative, not medical advice or
+      personalized guidance. Swap in your own Function panel, scan, and CGM
+      numbers before drawing conclusions.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
