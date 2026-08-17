@@ -6,16 +6,24 @@ Plain HTML/CSS/JS, no build step, no framework required.
 
 ## What's in here
 
-- `index.html` — page structure: hero + 4 content sections + footer
+- `index.html` — page structure: hero + 5 content sections + footer
 - `style.css` — dark theme, fade/slide-in-on-scroll styling
-- `script.js` — three practice techniques:
+- `script.js` — the techniques being practiced here:
   1. `IntersectionObserver` that reveals each `<section class="reveal">`
      as it scrolls into view
-  2. A hand-drawn SVG line chart on a log scale (no charting library)
-  3. An interactive hover/tap bar comparison
+  2. A hand-drawn SVG line chart, plotted on a linear mg/dL scale
+     (no charting library)
+  3. An interactive hover/tap bar comparison with a pairing toggle
+  4. Two hand-drawn SVG explainer diagrams (the feedback loop in Part Two,
+     the three-input synthesis in Part Five)
+  5. A procedurally animated canvas hero
+  6. A chapter navigator that tracks the current section
+  7. A personal-labs panel that persists to `localStorage` (device-only —
+     nothing is sent anywhere)
 
-All the sample numbers are **placeholders** — swap `chartData` and
-`barData` in `script.js` for data you've actually sourced.
+All the sample numbers are **placeholders** — swap `glucoseSeries` (the
+chart) and `foodData` (the bars) in `script.js` for data you've actually
+sourced.
 
 ## Run it locally
 
