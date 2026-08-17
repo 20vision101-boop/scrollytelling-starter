@@ -8,32 +8,36 @@ Plain HTML/CSS/JS, no build step, no framework required.
 
 - `index.html` — page structure: hero + 5 content sections + footer
 - `style.css` — dark theme, fade/slide-in-on-scroll styling
-- `script.js` — the techniques being practiced here:
-  1. `IntersectionObserver` that reveals each `<section class="reveal">`
-     as it scrolls into view
-  2. A hand-drawn SVG line chart, plotted on a linear mg/dL scale
-     (no charting library)
-  3. An interactive hover/tap bar comparison with a pairing toggle
-  4. Two hand-drawn SVG explainer diagrams (the feedback loop in Part Two,
-     the three-input synthesis in Part Five)
-  5. A procedurally animated canvas hero
-  6. A chapter navigator that tracks the current section
-  7. A personal-labs panel that persists to `localStorage` (device-only —
-     nothing is sent anywhere)
+- `js/` — ES modules, one per technique being practiced here. `js/main.js`
+  is the entry point and just calls each module's `init`:
 
-All the sample numbers are **placeholders** — swap `glucoseSeries` (the
-chart) and `foodData` (the bars) in `script.js` for data you've actually
-sourced.
+  | Module | What it does |
+  | --- | --- |
+  | `reveal.js` | `IntersectionObserver` that reveals each `<section class="reveal">` as it scrolls into view |
+  | `glucose-chart.js` | A hand-drawn SVG line chart on a linear mg/dL scale (no charting library) |
+  | `food-bars.js` | An interactive hover/tap bar comparison with a pairing toggle |
+  | `diagrams.js` | Two hand-drawn SVG explainer diagrams (the feedback loop in Part Two, the three-input synthesis in Part Five) |
+  | `chapter-nav.js` | A chapter navigator that tracks the current section |
+  | `labs-panel.js` | A personal-labs panel that persists to `localStorage` (device-only — nothing is sent anywhere) |
+  | `hero/` | The procedurally animated canvas hero |
+
+  The hero is split further: `hero/index.js` owns the canvas, the resize
+  handling and the render loop, and each layer draws itself —
+  `hero/background.js` (gradient orbs, god-rays, orrery, constellation),
+  `hero/atom.js`, and `hero/earth.js` (the procedural planet and its
+  storms), over shared `hero/noise.js` and `hero/palette.js`.
+
+All the sample numbers are **placeholders** — swap `glucoseSeries` in
+`js/glucose-chart.js` and `foodData` in `js/food-bars.js` for data you've
+actually sourced.
 
 ## Run it locally
 
-No build tools needed. Either:
+No build tools needed, but you do need to serve it over HTTP — the page
+loads ES modules, and browsers block those on `file://`, so opening
+`index.html` directly gives you a blank, silent page.
 
 ```bash
-# open it directly
-open index.html
-
-# or serve it (recommended, avoids some browser file:// quirks)
 npx serve .
 ```
 
